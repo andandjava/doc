@@ -1,0 +1,370 @@
+activity_main.xml
+=================
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="24dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/editText1"
+        android:ems="10"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="24dp"
+        android:text="Type" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="34dp"
+        android:text="Name" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="21dp"
+        android:text="Save" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/buttonSave"
+        android:layout_marginTop="20dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonExit"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonUp"
+        android:layout_alignBottom="@+id/buttonUp"
+        android:layout_alignParentRight="true"
+        android:text="Exit" />
+
+    <Button
+        android:id="@+id/buttonUp"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonDel"
+        android:layout_alignBottom="@+id/buttonDel"
+        android:layout_toLeftOf="@+id/buttonExit"
+        android:text="Up" />
+
+    <Button
+        android:id="@+id/buttonDel"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scrollView1"
+        android:layout_toLeftOf="@+id/buttonUp"
+        android:text="Del" />
+
+    <Button
+        android:id="@+id/buttonAll"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scrollView1"
+        android:layout_toLeftOf="@+id/buttonDel"
+        android:text="All" />
+
+    <Button
+        android:id="@+id/buttonGet"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scrollView1"
+        android:layout_toLeftOf="@+id/buttonAll"
+        android:text="Get" />
+
+</RelativeLayout>
+
+DBHelper.java
+==============
+package com.example.birdapp;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
+
+public class DBHelper extends SQLiteOpenHelper {
+
+	Context con;
+	SQLiteDatabase db;
+	
+	public DBHelper(Context context) {
+		super(context, "Bird" , null, 1);
+	    this.con=context;
+	    db=getWritableDatabase();
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase arg0) {
+		
+		// arg0.execSQL("create table BirdTable(Name text,Type text);");
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		
+
+	}
+	public long insertBird(String s1,String s2)
+	{
+		long n;
+		
+		ContentValues cv=new ContentValues();
+		cv.put("Name",s1);
+		cv.put("Type", s2);
+	//Toast.makeText(con, "before inserted", 1).show();
+		n=db.insert("BirdTable",null, cv);
+		//db.insert(table, nullColumnHack, values);
+		//Toast.makeText(con, "after inserted in DBHelper", 1).show();
+		return n;
+	}
+	public Cursor get(String s)
+	{
+		Cursor c=db.query("BirdTable", new String[]{"Name","Type"}, "Name='"+s+"'" , null, null, null, null);
+		return c;
+	}
+	public int del(String s)
+	{
+		int  n=db.delete("BirdTable", "Name='"+s+"'", null);
+		return n;
+	}
+	
+	public Cursor getAll()
+	{/*
+		Toast.makeText(con, "before sql executed", 1).show();
+		Cursor c=db.query("BirdTable",new String[]{"Name","Type"},null,null,null,null,null);
+		//db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy);
+		Toast.makeText(con, "after sql executed", 1).show();
+		return c;*/
+		
+		String[] args={"Humming birrd"};
+		Cursor c=db.rawQuery("SELECT * FROM BirdTable WHERE name = ?", args);
+		return c;
+	}
+
+}
+MainActivity.java
+=================
+package com.example.birdapp;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import android.app.Activity;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity implements OnClickListener {
+	
+	Button buttonSave,buttonGet,buttonAll, buttonDel, buttonUp,buttonExit;
+	TextView tv1,tv2,tv3;
+	EditText ed1,ed2;
+	DBHelper helper;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		tv1=(TextView)findViewById(R.id.textView1);
+		tv2=(TextView)findViewById(R.id.textView2);
+		tv3=(TextView)findViewById(R.id.textView3);
+		
+		tv3.append("\n main activity");
+	//	tv3.setText("package name is"+getPackageName());
+		try {
+			File f=new File("data/data/"+getPackageName()+"/databases");
+			tv3.append("\n getpackagename"+getPackageName());
+			if(!f.exists())
+			{
+				f.mkdir();
+				tv3.append("\n if loop");
+			}
+			File ff=new File(f,"Bird");
+			
+			tv3.append("\n new file created with Bird name");
+			
+			FileOutputStream out=new FileOutputStream(ff);
+			tv3.append("\n output stream");
+			InputStream in=getBaseContext().getAssets().open("Bird.sqlite");
+			tv3.append("\n input stream");
+			
+			byte b[]=new byte[in.available()];
+			int n=in.read(b);
+			tv3.append("\n read");
+			out.write(b);
+			tv3.append("\n write");
+			in.close();
+			out.close();	
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+		tv1=(TextView)findViewById(R.id.textView1);
+		tv2=(TextView)findViewById(R.id.textView2);
+		tv3=(TextView)findViewById(R.id.textView3);
+		
+		ed1=(EditText)findViewById(R.id.editText1);
+		ed2=(EditText)findViewById(R.id.editText2);
+		
+		buttonSave=(Button)findViewById(R.id.buttonSave);
+		buttonGet=(Button)findViewById(R.id.buttonGet);
+		buttonAll=(Button)findViewById(R.id.buttonAll);
+		buttonDel=(Button)findViewById(R.id.buttonDel);
+		buttonUp=(Button)findViewById(R.id.buttonUp);
+		buttonExit=(Button)findViewById(R.id.buttonExit);
+		
+		buttonSave.setOnClickListener(this);
+		buttonGet.setOnClickListener(this);
+		buttonAll.setOnClickListener(this);
+		buttonDel.setOnClickListener(this);
+		buttonUp.setOnClickListener(this);
+		buttonExit.setOnClickListener(this);
+		
+	}
+	@Override
+	public void onClick(View v) 
+	{
+		
+		helper=new DBHelper(getBaseContext());
+		if(v==buttonSave)
+		{
+			String s1=ed1.getText().toString().trim();
+			String s2=ed2.getText().toString().trim();
+			
+			Toast.makeText(this, "Before DBHelper", 1).show();
+			long l=helper.insertBird(s1, s2);
+			if(l>0)
+				tv3.append("\n data inserted");
+			else
+				tv3.append("\n data not inserted");
+		}
+		else if(v==buttonGet)
+		{
+			try
+			{
+				String s=ed1.getText().toString().trim();
+				tv3.append("before DBHelper");
+				Cursor c=helper.get(s);
+				if(c.moveToFirst())
+				{
+					 String s2=c.getString(1);
+					 ed2.setText(s2);
+					 tv3.append("username is  "+s);
+					 tv3.append("password is  "+s2);
+				 }
+				tv3.append("after DBHelper");
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		else if(v==buttonAll)
+		{
+			try
+			{
+				Cursor c=helper.getAll();
+				 tv3.setText("after DBHelper ");
+				c.moveToFirst();
+				do
+				 {
+					 tv3.append("\n inside if loop");
+					 tv3.append(c.getString(0)+" "+c.getString(1));
+					 tv3.append("\n after retrieving inside if loop");
+				 }while(c.moveToNext());
+			tv3.append("\n All records are retrieved");
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		else if(v==buttonDel)
+		{
+			tv3.setText("Del");
+			String s=ed1.getText().toString().trim();
+			int n=helper.del(s);
+			if(n>0)
+				tv3.append("record deleted");
+			else
+				tv3.append("record not deleted");
+		}
+		else if(v==buttonUp)
+		{
+			tv3.setText("Up");
+		}
+		else //Exit or Show
+		{
+			tv3.setText("Exit");
+		}
+	}	
+}
+

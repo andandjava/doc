@@ -1,0 +1,41 @@
+Servlet technology is used to create web application (resides at server side and generates dynamic web page).
+
+Servlet is a technology i.e. used to create web application.
+
+A web application is an application accessible from the web. A web application is composed of web components like Servlet, JSP, Filter etc. and other components such as HTML. The web components typically execute in Web Server and respond to HTTP request.
+
+Http is the protocol that allows web servers and browsers to exchange data over the web.
+It is a request response protocol.
+Http uses reliable TCP connections bydefault on TCP port 80.
+It is stateless means each request is considered as the new request. In other words, server doesn't recognize the user bydefault.
+
+Container
+
+It provides runtime environment for JavaEE (j2ee) applications.
+
+It performs many operations that are given below:
+
+Life Cycle Management
+Multithreaded support
+Object Pooling
+Security etc.
+
+Server
+
+It is a running program or software that provides services.
+
+There are two types of servers:
+
+Web Server
+Application Server
+
+Content Type is also known as MIME (Multipurpose internet Mail Extension) Type.
+
+Servlet API
+
+The javax.servlet and javax.servlet.http packages represent interfaces and classes for servlet api.
+
+The javax.servlet package contains many interfaces and classes that are used by the servlet or web container. These are not specific to any protocol.
+
+The javax.servlet.http package contains interfaces and classes that are responsible for http requests only.
+

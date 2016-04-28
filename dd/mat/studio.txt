@@ -1,0 +1,25 @@
+Groovy
+======
+object-oriented programming language for the Java platform.
+ It can be used as a scripting language for the Java Platform, is dynamically compiled to Java Virtual Machine (JVM) bytecode, and interoperates with other Java code and libraries.
+scripting language
+
+
+tool     os     build language      description language
+----------------------------------------------------------
+ant     cross      java                xml
+maven   cross      java           pom(project object model)
+gradle  cross   cross language     Groovy based DSL
+
+
+gradle=ant+maven-noise of xml(use groovy instead of that xml)
+groovy(DSL--Domain Specific Language)
+
+
+
+
+
+
+
+
+

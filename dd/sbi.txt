@@ -1,0 +1,11 @@
+parajumbled-5,spotting errors-5,cloze text-10,blanks-10,comprehension-20
+
+probability/series-5,table-5,combined data set-5,linegraph-5, caselets-10, pie chart-10,bar graph-10
+
+logical reas-2,data sufficiency-3,stmt & arguement-3,blood-3, order &ranking-3,passage&conclusion-4
+making judgement-4, number series-5,seating arrangement-5,input-output-5,puzzle-10
+
+GA+MA+C
+current Affairs,budget,recent banking news,q's related to UN headquarters--25
+basics of marketing,development stage of org,P's and C's of marketing,procuts lifecycke,m strategies,m mix--10
+basics,h/w &s/w,MSword &Excel,OS,short forms,internet,Apple & android news--15

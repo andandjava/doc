@@ -1,0 +1,65 @@
+Daily
+=====
+review projects done
+new concepts
+
+Todo
+====
+ads in mobile(banner,interstitial)
+online payment
+lock an app
+kill all apps
+kill all apps running background
+enhance performance(speed,increase memory)
+splash screen
+g+ login
+facebook login
+junit testing
+get app from .apk file(reverse)
+showing current location in the map
+Get directions(from current location to destination)
+navigation drawer layout
+slidingpane layout
+recycler view
+card view
+Design patters in android
+=================
+
+activity lifecycle program
+fragment lifecycle program
+activity+fragment lifecycle program
+
+
+
+
+
+nfc
+groupchat msg,call,audio,video,location.
+
+sequence of topics
+==================
+fragments
+intents
+sqlite(prgs)
+Types of dialogs
+
+Maps
+====
+dispalying maps
+locating latitude & longitude in map
+placing markers
+marker click event
+customizing markers
+displaying info window
+customizing info window
+clicking info window
+button clicking in info window
+naming the marker
+tracking
+lines between markers
+lines between markers without URL
+distance between two places
+PlacesDetectionAPI(shows the nearest places)
+GeoDataApi(displays places list)
+
+reference link:   https://developers.google.com/places/android-api/current-place

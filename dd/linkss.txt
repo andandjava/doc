@@ -1,0 +1,25 @@
+http://timesofindia.indiatimes.com/tech/tech-news/BA-in-Philosophy-MBA-dropout-400-million-deal/articleshow/46873656.cms?intenttarget=no
+
+
+http://androidexample.com/JSON_Parsing_-_Android_Example/index.php?view=article_discription&aid=71&aaid=95
+
+
+http://www.java-examples.com/read-file-using-fileinputstream
+
+android: running googlemaps v2 in emulator
+
+http://hmkcode.com/run-google-map-v2-on-android-emulator/
+
+android webservices url example
+
+http://dev.eatz.com/WebServices/getslots/1373/Lunch/2015-5-05/12
+
+http://saga-androidapplication.blogspot.in/2012/05/how-to-use-image-can-convert-into.html
+
+http://asmncl.blogspot.in/2013/03/android-convert-image-to-byte-array.html
+
+http://www.e-nature.ch/tech/saving-loading-bitmaps-to-the-android-device-storage-internal-external/
+
+http://connectcoders.blogspot.in/2012/12/save-bitmap-in-internal-and-external.html
+
+http://codetheory.in/android-saving-files-on-internal-and-external-storage/

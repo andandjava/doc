@@ -1,0 +1,669 @@
+Android Interview Questions List
+
+1.What is android?
+2.What is activity?
+3.What is a Sticky Intent?
+4.What is intent in Android?
+5.Explain IP datagram, Fragmentation and MTU.| Android
+6.What are the differences between a domain and a workgroup?
+7.Explain about the exceptions of Android
+8.How to select more than one option from list in android xml file? Give an example
+9.Describe a real time scenario where android can be used?
+10.I just got a new phone, but have no apps. What should I get?
+11.How much revenue share does the developer get?
+12.Are the Android apps first scrutinized by Google?
+13.Which Programming language is supported by Android?
+14.What is the Android G1 Phone?
+15.Why is open platform good for developers?
+16.Why is open platform good for the mobile operators?
+17.Why an open source platform would be beneficial to consumers?
+18.What innovations the OHA members strive to achieve?
+19.Where can I download a release?
+20.Are the Android releases available in a ROM?
+21.Describe the APK format.| Android
+22.Can I write code for Android using C/C++?
+23.How to Remove Desktop icons and Widgets?
+24.What are the dialog boxes that are supported in android? Explain.
+25.What is needed to make a multiple choice list with a custom view for each row?
+26.What are the differences between a domain workgroup?
+27.What are the features of Android?
+28.How long does it take to build an app?
+29.What are the advantages of Android?
+30.Describe Android Application Architecture?
+31.Explain about the exceptions of Android?
+32.Explain IP datagram, Fragmentation and MTU?
+33.How is nine-patch image different from a regular bitmap?
+34.What is the TTL (Time to Live)? Why is it required?
+35.What are the advantages of Android?
+36.What is an action?
+37.How to Translate in android?
+38.What is APK format?
+39.Can an application be started on powerup?
+40.Does Android support the Bluetooth serial port profile?
+41.What’s the difference between class, file and activity in android?
+42.How will you record a ihone call in Android? or How to handle on Audio Stream for a call in Android?
+43.What is a resource?
+44.What Programming languages does Android support for application development?
+45.How the nine-patch Image different from a regular bitmap? or Different between nine – patch Image vs regular Bitmap Image?
+
+
+
+What is android?
+Android is a stack of software for mobile devices which has Operating System, middleware and some key applications. The application executes within its own process and its own instance of Dalvik Virtual Machine. Many Virtual Machines run efficiently by a DVM device. DVM executes Java language?s byte code which later transforms into .dex format files.
+
+
+Describe the APK format.
+The APK file is compressed the AndroidManifest.xml file, application code (.dex files), resource files, and other files. A project is compiled into a single .apk file.
+
+Describe a real time scenario where android can be used?
+Imagine a situation that you are in a country where no one understands the language you speak and you can not read or write. However, you have mobile phone with you.
+
+With a mobile phone with android, the Google translator translates the data of one language into another language by using XMPP to transmit data. You can type the message in English and select the language which is understood by the citizens of the country in order to reach the message to the citizens.
+
+
+
+What is an action?
+A description of something that an Intent sender desires.
+
+What are the advantages of Android?
+The following are the advantages of Android:
+
+* The customer will be benefited from wide range of mobile applications to choose, since the monopoly of wireless carriers like AT&T and Orange will be broken by Google Android.
+* Features like weather details, live RSS feeds, opening screen, icon on the opening screen can be customized
+* Innovative products like the location-aware services, location of a nearby convenience store etc., are some of the additive facilities in Android.
+
+
+
+What is activity?
+A single screen in an application, with supporting Java code.
+
+How to select more than one option from list in android xml file? 
+Give an example.
+Specify android id, layout height and width as depicted in the following example.
+
+<ListView android:id="@+id/ListView01" android:layout_height="wrap_content" android:layout_width="fill_parent"></ListView>
+
+
+What is intent?
+A class (Intent) describes what a caller desires to do. The caller sends this intent to Android's intent resolver, which finds the most suitable activity for the intent.
+
+
+Explain IP datagram, Fragmentation and MTU ?
+IP datagram can be used to describe a portion of IP data. Each IP datagram has set of fields arranged in an order. The order is specific which helps to decode and read the stream easily. IP datagram has fields like Version, header length, Type of service, Total length, checksum, flag, protocol, Time to live, Identification, source and destination ip address, padding, options and payload.
+
+MTU:- Maximum Transmission Unit is the size of the largest packet that a communication protocol can pass. The size can be fixed by some standard or decided at the time of connection
+
+Fragmentation is a process of breaking the IP packets into smaller pieces. Fragmentation is needed when the datagram is larger than the MTU. Each fragment becomes a datagram in itself and transmitted independently from source. When received by destination they are reassembled.
+
+How is nine-patch image different from a regular bitmap?
+It is a resizable bitmap resource that can be used for backgrounds or other images on the device. The NinePatch class permits drawing a bitmap in nine sections. The four corners are unscaled; the four edges are scaled in one axis, and the middle is scaled in both axes.
+
+What languages does Android support for application development?
+Android applications are written using the Java programming language.
+
+What is a resource?
+A user-supplied XML, bitmap, or other file, injected into the application build process, which can later be loaded from code.
+
+How will you record a phone call in Android? How to get a handle on Audio Stream for a call in Android?
+Permissions.PROCESS_OUTGOING_CALLS: Allows an application to monitor, modify, or abort outgoing calls.
+
+What's the difference between file, class and activity in android?
+File - It is a block of arbitrary information, or resource for storing information. It can be of any type.
+Class - Its a compiled form of .Java file . Android finally used this .class files to produce an executable apk
+Activity - An activity is the equivalent of a Frame/Window in GUI toolkits. It is not a file or a file type it is just a class that can be extended in Android for loading UI elements on view.
+
+What is a Sticky Intent?
+sendStickyBroadcast() performs a sendBroadcast (Intent) that is "sticky," i.e. the Intent you are sending stays around after the broadcast is complete, so that others can quickly retrieve that data through the return value of registerReceiver (BroadcastReceiver, IntentFilter). In all other ways, this behaves the same as sendBroadcast(Intent).
+
+How do you declare 4 components of android in mainfestfile?
+<activity>
+<service>
+<receiver>
+<provider>
+What are intent filters?
+Intents filter are used to register activity, services, broadcast receiver as being capable of performing an action on a particular kind of action.
+How many ways data stored in android?
+Shared preferences
+Internal storage
+External storage
+Sqlite database
+Network connetion
+User interface types?
+Views
+Notifications
+Types of notification in android?
+Tost notification
+Status bar notification
+Dialog notification
+How do you find any view element into your program?
+Findviewbyid
+What is handler class do in android?
+Handler allows yo to send and process message and runnable objects associated with a thread’s message queue.
+
+Describe the APK format. 
+The APK file is compressed the AndroidManifest.xml file, application code (.dex files), resource files, and other files. A project is compiled into a single .apk file. 
+
+ 
+What is an action? 
+The Intent Sender desires something or doing some task 
+
+What is activity? 
+A single screen in an application, with supporting Java code. 
+
+What is intent in Android? 
+A class (Intent) will describes what a caller desires to do. The caller will send this intent to Android's intent resolver, which finds the most suitable activity for the intent. E.g. opening a PDF document is an intent, and the Adobe Reader apps will be the perfect activity for that intent(class). 
+
+What is a Sticky Intent? 
+sendStickyBroadcast() performs a sendBroadcast (Intent) known as sticky, i.e. the Intent you are sending stays around after the broadcast is complete, so that others can quickly retrieve that data through the return value of registerReceiver (BroadcastReceiver, IntentFilter). In all other ways, this behaves the same as sendBroadcast(Intent). 
+
+Example for sticky broadcast 
+When you call registerReceiver() for that action -- even with a null BroadcastReceiver -- you get the Intent that was last broadcast for that action. Hence, you can use this to find the state of the battery without necessarily registering for all future state changes in the battery. 
+
+How the nine-patch Image different from a regular bitmap? or Different between nine-patch Image vs regular Bitmap Image 
+It is one of a resizable bitmap resource which is being used as backgrounds or other images on the device. The NinePatch class allows drawing a bitmap in nine sections. The four corners are unscaled; the middle of the image is scaled in both axes, the four edges are scaled into one axis. 
+
+What Programming languages does Android support for application development? 
+Android applications supports using Java Programming Language. which is coded in Java and complied using Android SDK. 
+
+What is a resource? 
+A user defined JSON, XML, bitmap, or other file, injected into the application build process, which can later be loaded from code. 
+
+How will you record a phone call in Android? or How to handle on Audio Stream for a call in Android? 
+Permissions.PROCESS_OUTGOING_CALLS: Will Allows an application to monitor, modify, or abort outgoing calls. So through that we can monitor the Phone calls. 
+
+What's the difference between class, file and activity in android? 
+Class - The Class file is complied from .java file. Android will use this .class file to produce the executable apk. 
+File - It is a block of resources, srbitrary information. It can be any file type. 
+Activity - An activity is the equivalent of a Frame/Window in GUI toolkits. It is not a file or a file type it is just a class that can be extended in Android for loading UI elements on view. 
+
+Does Android support the Bluetooth serial port profile? 
+A. Yes. 
+
+
+
+Can an application be started on powerup? 
+A. Yes. 
+
+What is APK format.?
+The APK file is compressed AndroidManifest.xml file with extension .apk, Which have application code (.dex files), resource files, and other files which is compressed into single .apk file. 
+
+How to Translate in android? 
+The Google translator translates the data of one language into another language by using XMPP to transmit data. You can type the message in English and select the language which is understood by the citizens of the country in order to reach the message to the citizens. 
+
+
+What is an action? 
+A description of something that an Intent sender desires. 
+
+
+What are the advantages of Android? 
+The following are the advantages of Android: 
+* The customer will be benefited from wide range of mobile applications to choose, since the monopoly of wireless carriers like Orange and AT&T will be broken by Google Android. 
+* Features like weather details, live RSS feeds, opening screen, icon on the opening screen can be customized 
+* Innovative products like the location-aware services, location of a nearby convenience store etc., are some of the additive facilities in Android.
+
+
+What is android tell me the android development ?
+Android is a stack of software for mobile devices which has Operating System, middleware and some key applications. The application executes within its own process and its own instance of Dalvik Virtual Machine. Many Virtual Machines run efficiently by a DVM device. DVM executes Java language’s byte code which later transforms into .dex format files.
+What are the features of Android?  
+SQLite enables to store the data in a structured manner.
+Supports GSM telephone and Bluetooth, WiFi, 3G and EDGE technologies
+The development is a combination of a device emulator, debugging tools, memory profiling and plug-in for Eclipse IDE.
+Components can be reused and replaced by the application framework.
+Optimized DVM for mobile devices
+
+
+Which way  AOSP relate to the Android Compatibility Program?
+The Android Open-Source Project maintains the Android software, and develops new versions. Since it’s open-source, this software can be used for any purpose, including to ship devices that are not compatible with other devices based on the same source.
+The function of the Android Compatibility Program is to define a baseline implementation of Android that is compatible with third-party apps written by developers. Devices that are “Android compatible” may participate in the Android ecosystem, including Android Market; devices that don’t meet the compatibility requirements exist outside that ecosystem.
+
+What is  the Android Application Architecture ? 
+Android Application Architecture has the following components:
+Services like Network Operation
+Intent - To perform inter-communication between activities or services
+Resource Externalization - such as strings and graphics
+Notification signaling users - light, sound, icon, notification, dialog etc.
+Content Providers - They share data between applications
+
+
+How can we  involved in releasing the source code for a new Android version?
+Releasing the source code for a new version of the Android platform is a significant process. First, the software gets built into a system image for a device, and put through various forms of certification, including government regulatory certification for the regions the phones will be deployed. It also goes through operator testing. This is an important phase of the process, since it helps shake out a lot of software bugs.
+Once the release is approved by the regulators and operators, the manufacturer begins mass producing devices, and we turn to releasing the source code.
+Simultaneous to mass production the Google team kicks off several efforts to prepare the open source release. These efforts include final API changes and documentation (to reflect any changes that were made during qualification testing, for example), preparing an SDK for the new version, and launching the platform compatibility information.
+Also included is a final legal sign-off to release the code into open source. Just as open source contributors are required to sign a Contributors License Agreement attesting to their IP ownership of their contribution, Google too must verify that it is clear to make contributions.
+Starting at the time mass production begins, the software release process usually takes around a month, which often roughly places source code releases around the same time that the devices reach users.
+
+uses of android : -
+
+Android is useful because:
+It is simple and powerful SDK
+Licensing, Distribution or Development fee is not required
+Easy to Import third party Java library
+Supporting platforms are – Linux, Mac Os, Windows
+overview of the steps you must follow to set up the Android SDK:
+Prepare your development computer and ensure it meets the system requirements.
+Install the SDK starter package from the table above. (If you're on Windows, download the installer for help with the initial setup.)
+Install the ADT Plugin for Eclipse (if you'll be developing in Eclipse).
+Add Android platforms and other packages to your SDK.
+Explore the contents of the Android SDK (optional).
+
+
+What are the advantages of Android?
+The following are the advantages of Android:
+The customer will be benefited from wide range of mobile applications to choose, since the monopoly of wireless carriers like AT&T and Orange will be broken by Google Android.
+Features like weather details, live RSS feeds, opening screen, icon on the opening screen can be customized
+Innovative products like the location-aware services, location of a nearby convenience store etc., are some of the additive facilities in Android
+
+
+How Can we  write code for Android using C/C++?
+Yes, but need to use NDK
+Android applications are written using the Java programming language. Android includes a set of core libraries that provides most of the functionality available in the core libraries of the Java programming language.
+Every Android application runs in its own process, with its own instance of the Dalvik virtual machine. Dalvik has been written so that a device can run multiple VMs efficiently. The Dalvik VM executes files in the Dalvik Executable (.dex) format which is optimized for minimal memory footprint. The VM is register-based, and runs classes compiled by a Java language compiler that have been transformed into the .dex format by the included “dx” tool.
+Android only supports applications written using the Java programming language at this time.
+
+What is the file features used in android?
+Android is rich in file features and it provides lots of variations in them as well. The file features are as follows:
+Intent filters: includes bundle of information which describes a desired action.
+Icons and Labels: includes information for small icon and a text label that can be displayed to users. These are set for an intent filter and are used to represent a component which fulfills the function advertised by the filter.
+Permissions: it is a restriction or limitation access to a part of code or data on the device. It is given as:-android.permission.CALL_EMERGENCY_NUMBERS 
+Libraries: it includes the basic packages for building and developing applications.
+
+
+What is .apk extension ? 
+
+The extension for an Android package file, which typically contains all of the files related to a single Android application. The file itself is a compressed collection of an AndroidManifest.xml file, application code (.dex files), resource files, and other files. A project is compiled into a single .apk file.
+Layout resource
+An XML file that describes the layout of an Activity screen.
+Manifest
+An XML file associated with each Application that describes the various activies, intent filters, services, and other items that it exposes. 
+Nine-patch / 9-patch / Ninepatch image
+A resizeable bitmap resource that can be used for backgrounds or other images on the device. See Nine-Patch Stretchable Image for more information.
+Query String
+A type of URI. See the URI entry.
+
+
+What is Android Runtime?
+Android includes a set of core libraries that provides most of the functionality available in the core libraries of the Java programming language.
+Every Android application runs in its own process, with its own instance of the Dalvik virtual machine. Dalvik has been written so that a device can run multiple VMs efficiently. The Dalvik VM executes files in the Dalvik Executable (.dex) format which is optimized for minimal memory footprint. The VM is register-based, and runs classes compiled by a Java language compiler that have been transformed into the .dex format by the included “dx” tool.
+
+
+Describe of Android Market in compatibility?
+Devices that are Android compatible may seek to license the Android Market client software. This allows them to become part of the Android app ecosystem, by allowing users to download developers’ apps from a catalog shared by all compatible devices. This option isn’t available to devices that aren’t compatible.
+What kinds of devices can be Android compatible?
+The Android software can be ported to a lot of different kinds of devices, including some on which third-party apps won’t run properly. The Android Compatibility Definition Document (CDD) spells out the specific device configurations that will be considered compatible.
+For example, though the Android source code could be ported to run on a phone that doesn’t have a camera, the CDD requires that in order to be compatible, all phones must have a camera. This allows developers to rely on a consistent set of capabilities when writing their apps.
+The CDD will evolve over time to reflect market realities. For instance, the 1.6 CDD only allows cell phones, but the 2.1 CDD allows devices to omit telephony hardware, allowing for non-phone devices such as tablet-style music players to be compatible. As we make these changes, we will also augment Android Market to allow developers to retain control over where their apps are available. To continue the telephony example, an app that manages SMS text messageswould not be useful on a media player, so Android Market allows the developer to restrict that app exclusively to phone devices.
+If my device is compatible, does it automatically have access to Android Market and branding?
+Android Market is a service operated by Google. Achieving compatibility is a prerequisite for obtaining access to the Android Market software and branding. Device manufacturers should contact Google to obtain access to Android Market.
+Features of Android
+
+Application framework enabling reuse and replacement of components
+Dalvik virtual machine optimized for mobile devices
+Integrated browser based on the open source WebKit engine
+Optimized graphics powered by a custom 2D graphics library; 3D graphics based on the OpenGL ES 1.0 specification (hardware acceleration optional)
+SQLite for structured data storage
+Media support for common audio, video, and still image formats (MPEG4, H.264, MP3, AAC, AMR, JPG, PNG, GIF)
+GSM Telephony (hardware dependent)
+Bluetooth, EDGE, 3G, and WiFi (hardware dependent)
+Camera, GPS, compass, and accelerometer (hardware dependent)
+Rich development environment including a device emulator, tools for debugging, memory and performance profiling, and a plugin for the Eclipse IDE.
+
+How long does compatibility take?
+The process is automated. The Compatibility Test Suite generates a report that can be provided to Google to verify compatibility. Eventually we intend to provide self-service tools to upload these reports to a public database.
+
+Who determines what will be part of the compatibility definition?
+Since Google is responsible for the overall direction of Android as a platform and product, Google maintains the Compatibility Definition Document for each release. We draft the CDD for a new Android version in consultation with a number of OEMs, who provide input on its contents.
+
+
+-----------------------OR-------------------------------------
+Introduction Android:
+Android is an operating system for mobile devices that includes middleware and key applications, and uses a modified version of the Linux kernel. It was initially developed by Android Inc..It allows developers to write managed code in the Java language, controlling the device via Google-developed Java libraries…..
+The Android SDK includes a comprehensive set of development tools . These include a debugger, libraries, a handset emulator (based on QEMU), documentation, sample code, and tutorials. Currently supported development platforms include x86-architecture computers running Linux (any modern desktop Linux distribution), Mac OS X 10.4.8 or later, Windows XP or Vista.
+Android does not use established Java standards, i.e. Java SE and ME. This prevents compatibility among Java applications written for those platforms and those for the Android platform. Android only reuses the Java language syntax, but does not provide the full-class libraries and APIs bundled with Java SE or ME
+
+
+What is android?
+Android is a stack of software for mobile devices which has Operating System, middleware and some key applications. The application executes within its own process and its own instance of Dalvik Virtual Machine. Many Virtual Machines run efficiently by a DVM device. DVM executes Java language?s byte code which later transforms into .dex format files.
+
+
+
+What are the advantages of Android?
+The following are the advantages of Android:
+* The customer will be benefited from wide range of mobile applications to choose, since the monopoly of wireless carriers like AT&T and Orange will be broken by Google Android.
+* Features like weather details, live RSS feeds, opening screen, icon on the opening screen can be customized
+* Innovative products like the location-aware services, location of a nearby convenience store etc., are some of the additive facilities in Android.
+Components can be reused and replaced by the application framework.
+*Optimized DVM for mobile devices
+*SQLite enables to store the data in a structured manner.
+*Supports GSM telephone and Bluetooth, WiFi, 3G and EDGE technologies
+*The development is a combination of a device emulator, debugging tools, memory profiling and plug-in for Eclipse IDE.
+Features of Android
+? Application framework enabling reuse and replacement of components
+? Dalvik virtual machine optimized for mobile devices
+? Integrated browser based on the open source WebKit engine
+? Optimized graphics powered by a custom 2D graphics library; 3D graphics based on the OpenGL ES 1.0 specification (hardware acceleration optional)
+? SQLite for structured data storage
+? Media support for common audio, video, and still image formats (MPEG4, H.264, MP3, AAC, AMR, JPG, PNG, GIF)
+? GSM Telephony (hardware dependent)
+? Bluetooth, EDGE, 3G, and WiFi (hardware dependent)
+? Camera, GPS, compass, and accelerometer (hardware dependent)
+? Rich development environment including a device emulator, tools for debugging, memory and performance profiling, and a plugin for the Eclipse IDE.
+
+
+Explain about the exceptions of Android?
+The following are the exceptions that are supported by Android
+* InflateException : When an error conditions are occurred, this exception is thrown
+* Surface.OutOfResourceException: When a surface is not created or resized, this exception is thrown
+* SurfaceHolder.BadSurfaceTypeException: This exception is thrown from the lockCanvas() method, when invoked on a Surface whose is SURFACE_TYPE_PUSH_BUFFERS
+* WindowManager.BadTokenException: This exception is thrown at the time of trying to add view an invalid WindowManager.LayoutParamstoken.
+
+
+
+Describe the APK format.?
+The APK file is compressed the AndroidManifest.xml file, application code (.dex files), resource files, and other files. A project is compiled into a single .apk file.
+
+
+What is .apk extension? 
+The extension for an Android package file, which typically contains all of the files related to a single Android application. The file itself is a compressed collection of an AndroidManifest.xml file, application code (.dex files), resource files, and other files. A project is compiled into a single .apk file.
+What is .dex extension 
+Android programs are compiled into .dex (Dalvik Executable) files, which are in turn zipped into a single .apk file on the device. .dex files can be created by automatically translating compiled applications written in the Java programming language
+
+
+What is an adb ?
+Android Debug Bridge, a command-line debugging application shipped with the SDK. It provides tools to browse the device, copy tools on the device, and forward ports for debugging.
+
+
+What is an Application ?
+A collection of one or more activities, services, listeners, and intent receivers. An application has a single manifest, and is compiled into a single .apk file on the device.
+
+
+What is a Content Provider ?
+A class built on ContentProvider that handles content query strings of a specific format to return data in a specific format. See Reading and writing data to a content provider for information on using content providers.
+
+
+What is a Dalvik ?
+The name of Android’s virtual machine. The Dalvik VM is an interpreter-only virtual machine that executes files in the Dalvik Executable (.dex) format, a format that is optimized for efficient storage and memory-mappable execution. The virtual machine is register-based, and it can run classes compiled by a Java language compiler that have been transformed into its native format using the included “dx” tool. The VM runs on top of Posix-compliant operating systems, which it relies on for underlying functionality (such as threading and low level memory management). The Dalvik core class library is intended to provide a familiar development base for those used to programming with Java Standard Edition, but it is geared specifically to the needs of a small mobile device.
+
+
+What is an DDMS 
+Dalvik Debug Monitor Service, a GUI debugging application shipped with the SDK. It provides screen capture, log dump, and process examination capabilities.
+
+
+What is Drawable? 
+A compiled visual resource that can be used as a background, title, or other part of the screen. It is compiled into an android.graphics.drawable subclass.
+
+
+What is an Intent?
+A class (Intent) that contains several fields describing what a caller would like to do. The caller sends this intent to Android’s intent resolver, which looks through the intent filters of all applications to find the activity most suited to handle this intent. Intent fields include the desired action, a category, a data string, the MIME type of the data, a handling class, and other restrictions.
+
+
+What is an Intent Filter ?
+Activities and intent receivers include one or more filters in their manifest to describe what kinds of intents or messages they can handle or want to receive. An intent filter lists a set of requirements, such as data type, action requested, and URI format, that the Intent or message must fulfill. For Activities, Android searches for the Activity with the most closely matching valid match between the Intent and the activity filter. For messages, Android will forward a message to all receivers with matching intent filters.
+
+
+What is an Intent Receiver? 
+An application class that listens for messages broadcast by calling Context.broadcastIntent
+
+
+What is a Layout resource?
+An XML file that describes the layout of an Activity screen.
+
+
+What is a Manifest ?
+An XML file associated with each Application that describes the various activies, intent filters, services, and other items that it exposes.
+
+
+What is a Resource ?
+A user-supplied XML, bitmap, or other file, entered into an application build process, which can later be loaded from code. Android can accept resources of many types; see Resources for a full description. Application-defined resources should be stored in the res/ subfolders.
+
+
+What is a Service ?
+A class that runs in the background to perform various persistent actions, such as playing music or monitoring network activity.
+
+
+What is a Theme ?
+A set of properties (text size, background color, and so on) bundled together to define various default display settings. Android provides a few standard themes, listed in R.style (starting with “Theme_”).
+
+
+What is an URIs? 
+Android uses URI strings both for requesting data (e.g., a list of contacts) and for requesting actions (e.g., opening a Web page in a browser). Both are valid URI strings, but have different values. All requests for data must start with the string “content://”. Action strings are valid URIs that can be handled appropriately by applications on the device; for example, a URI starting with “http://” will be handled by the browser.
+
+
+Can I write code for Android using C/C++?
+Yes, but need to use NDK
+Android applications are written using the Java programming language. Android includes a set of core libraries that provides most of the functionality available in the core libraries of the Java programming language.
+Every Android application runs in its own process, with its own instance of the Dalvik virtual machine. Dalvik has been written so that a device can run multiple VMs efficiently. The Dalvik VM executes files in the Dalvik Executable (.dex) format which is optimized for minimal memory footprint. The VM is register-based, and runs classes compiled by a Java language compiler that have been transformed into the .dex format by the included “dx” tool.
+Android only supports applications written using the Java programming language at this time.
+
+
+What is an action?
+A description of something that an Intent sender desires.
+
+
+What is activity?
+A single screen in an application, with supporting Java code.
+
+
+What is intent?
+A class (Intent) describes what a caller desires to do. The caller sends this intent to Android’s intent resolver, which finds the most suitable activity for the intent. E.g. opening a PDF file is an intent, and the Adobe Reader is the suitable activity for this intent.
+
+
+How is nine-patch image different from a regular bitmap?
+It is a resizable bitmap resource that can be used for backgrounds or other images on the device. The NinePatch class permits drawing a bitmap in nine sections. The four corners are unscaled; the four edges are scaled in one axis, and the middle is scaled in both axes.
+What languages does Android support for application development?
+Android applications are written using the Java programming language.
+
+
+What is a resource?
+A user-supplied XML, bitmap, or other file, injected into the application build process, which can later be loaded from code.
+How will you record a phone call in Android? How to get a handle on Audio Stream for a call in Android?
+Permissions.PROCESS_OUTGOING_CALLS: Allows an application to monitor, modify, or abort outgoing calls.
+
+
+What’s the difference between file, class and activity in android? 
+File – It is a block of arbitrary information, or resource for storing information. It can be of any type.
+Class – Its a compiled form of .Java file . Android finally used this .class files to produce an executable apk
+Activity – An activity is the equivalent of a Frame/Window in GUI toolkits. It is not a file or a file type it is just a class that can be extended in Android for loading UI elements on view.
+
+
+What is a Sticky Intent?
+sendStickyBroadcast() performs a sendBroadcast (Intent) that is “sticky,” i.e. the Intent you are sending stays around after the broadcast is complete, so that others can quickly retrieve that data through the return value of registerReceiver (BroadcastReceiver, IntentFilter). In all other ways, this behaves the same as sendBroadcast(Intent).
+One example of a sticky broadcast sent via the operating system is ACTION_BATTERY_CHANGED. When you call registerReceiver() for that action — even with a null BroadcastReceiver — you get the Intent that was last broadcast for that action. Hence, you can use this to find the state of the battery without necessarily registering for all future state changes in the battery.
+
+
+Does Android support the Bluetooth serial port profile?
+Yes.
+
+Can an application be started on powerup?
+Yes.
+
+
+How to Remove Desktop icons and Widgets
+A. Press and Hold the icon or widget. The phone will vibrate and on the bottom of the phone you will see anoption to remove. While still holding the icon or widget drag it to the remove button. Once remove turns red drop the item and it is gone
+
+
+
+Describe a real time scenario where android can be used?
+Imagine a situation that you are in a country where no one understands the language you speak and you can not read or write. However, you have mobile phone with you.
+With a mobile phone with android, the Google translator translates the data of one language into another language by using XMPP to transmit data. You can type the message in English and select the language which is understood by the citizens of the country in order to reach the message to the citizens.
+
+
+How to select more than one option from list in android xml file? 
+Give an example.
+Specify android id, layout height and width as depicted in the following example.
+
+
+What languages does Android support for application development?
+Android applications are written using the Java programming language.
+
+
+Describe Android Application Architecture.
+Android Application Architecture has the following components:
+• Services – like Network Operation
+• Intent – To perform inter-communication between activities or services
+• Resource Externalization – such as strings and graphics
+• Notification signaling users – light, sound, icon, notification, dialog etc.
+• Content Providers – They share data between applications
+Common Tricky questions
+? Remember that the GUI layer doesn’t request data directly from the web; data is always loaded from a local database.
+? The service layer periodically updates the local database.
+? What is the risk in blocking the Main thread when performing a lengthy operation such as web access or heavy computation? Application_Not_Responding exception will be thrown which will crash and restart the application.
+? Why is List View not recommended to have active components? Clicking on the active text box will pop up the software keyboard but this will resize the list, removing focus from the clicked element.
+Open Source
+
+
+What is the Android Open Source Project?
+We use the phrase “Android Open Source Project” or “AOSP” to refer to the people, the processes, and the source code that make up Android.
+The people oversee the project and develop the actual source code. The processes refer to the tools and procedures we use to manage the development of the software. The net result is the source code that you can use to build cell phone and other devices.
+
+
+Why did we open the Android source code?
+Google started the Android project in response to our own experiences launching mobile apps. We wanted to make sure that there would always be an open platform available for carriers, OEMs, and developers to use to make their innovative ideas a reality. We also wanted to make sure that there was no central point of failure, so that no single industry player could restrict or control the innovations of any other. The single most important goal of the Android Open-Source Project (AOSP) is to make sure that the open-source Android software is implemented as widely and compatibly as possible, to everyone’s benefit.
+You can find more information on this topic at our Project Philosophy page.
+
+
+What kind of open-source project is Android?
+Google oversees the development of the core Android open-source platform, and works to create robust developer and user communities. For the most part the Android source code is licensed under the permissive Apache Software License 2.0, rather than a “copyleft” license. The main reason for this is because our most important goal is widespread adoption of the software, and we believe that the ASL2.0 license best achieves that goal.
+You can find more information on this topic at our Project Philosophy and Licensing pages.
+
+
+Why is Google in charge of Android?
+Launching a software platform is complex. Openness is vital to the long-term success of a platform, since openness is required to attract investment from developers and ensure a level playing field. However, the platform itself must also be a compelling product to end users.
+That’s why Google has committed the professional engineering resources necessary to ensure that Android is a fully competitive software platform. Google treats the Android project as a full-scale product development operation, and strikes the business deals necessary to make sure that great devices running Android actually make it to market.
+By making sure that Android is a success with end users, we help ensure the vitality of Android as a platform, and as an open-source project. After all, who wants the source code to an unsuccessful product?
+Google’s goal is to ensure a successful ecosystem around Android, but no one is required to participate, of course. We opened the Android source code so anyone can modify and distribute the software to meet their own needs.
+What is Google’s overall strategy for Android product development?
+We focus on releasing great devices into a competitive marketplace, and then incorporate the innovations and enhancements we made into the core platform, as the next version.
+In practice, this means that the Android engineering team typically focuses on a small number of “flagship” devices, and develops the next version of the Android software to support those product launches. These flagship devices absorb much of the product risk and blaze a trail for the broad OEM community, who follow up with many more devices that take advantage of the new features. In this way, we make sure that the Android platform evolves according to the actual needs of real-world devices.
+
+
+How is the Android software developed?
+Each platform version of Android (such as 1.5, 1.6, and so on) has a corresponding branch in the open-source tree. At any given moment, the most recent such branch will be considered the “current stable” branch version. This current stable branch is the one that manufacturers port to their devices. This branch is kept suitable for release at all times.
+Simultaneously, there is also a “current experimental” branch, which is where speculative contributions, such as large next-generation features, are developed. Bug fixes and other contributions can be included in the current stable branch from the experimental branch as appropriate.
+Finally, Google works on the next version of the Android platform in tandem with developing a flagship device. This branch pulls in changes from the experimental and stable branches as appropriate.
+You can find more information on this topic at our Branches and Releases.
+
+
+Why are parts of Android developed in private?
+It typically takes over a year to bring a device to market, but of course device manufacturers want to ship the latest software they can. Developers, meanwhile, don’t want to have to constantly track new versions of the platform when writing apps. Both groups experience a tension between shipping products, and not wanting to fall behind.
+To address this, some parts of the next version of Android including the core platform APIs are developed in a private branch. These APIs constitute the next version of Android. Our aim is to focus attention on the current stable version of the Android source code, while we create the next version of the platform as driven by flagship Android devices. This allows developers and OEMs to focus on a single version without having to track unfinished future work just to keep up. Other parts of the Android system that aren’t related to application compatibility are developed in the open, however. It’s our intention to move more of these parts to open development over time.
+
+
+When are source code releases made?
+When they are ready. Some parts of Android are developed in the open, so that source code is always available. Other parts are developed first in a private tree, and that source code is released when the next platform version is ready.
+In some releases, core platform APIs will be ready far enough in advance that we can push the source code out for an early look in advance of the device’s release; however in others, this isn’t possible. In all cases, we release the platform source when we feel the version has stabilized enough, and when the development process permits. Releasing the source code is a fairly complex process.
+
+
+
+What is involved in releasing the source code for a new Android version?
+Releasing the source code for a new version of the Android platform is a significant process. First, the software gets built into a system image for a device, and put through various forms of certification, including government regulatory certification for the regions the phones will be deployed. It also goes through operator testing. This is an important phase of the process, since it helps shake out a lot of software bugs.
+Once the release is approved by the regulators and operators, the manufacturer begins mass producing devices, and we turn to releasing the source code.
+Simultaneous to mass production the Google team kicks off several efforts to prepare the open source release. These efforts include final API changes and documentation (to reflect any changes that were made during qualification testing, for example), preparing an SDK for the new version, and launching the platform compatibility information.
+Also included is a final legal sign-off to release the code into open source. Just as open source contributors are required to sign a Contributors License Agreement attesting to their IP ownership of their contribution, Google too must verify that it is clear to make contributions.
+Starting at the time mass production begins, the software release process usually takes around a month, which often roughly places source code releases around the same time that the devices reach users.
+
+
+How does the AOSP relate to the Android Compatibility Program?
+The Android Open-Source Project maintains the Android software, and develops new versions. Since it’s open-source, this software can be used for any purpose, including to ship devices that are not compatible with other devices based on the same source.
+The function of the Android Compatibility Program is to define a baseline implementation of Android that is compatible with third-party apps written by developers. Devices that are “Android compatible” may participate in the Android ecosystem, including Android Market; devices that don’t meet the compatibility requirements exist outside that ecosystem.
+In other words, the Android Compatibility Program is how we separate “Android compatible devices” from devices that merely run derivatives of the source code. We welcome all uses of the Android source code, but only Android compatible devices — as defined and tested by the Android Compatibility Program — may participate in the Android ecosystem.
+
+
+How can I contribute to Android?
+There are a number of ways you can contribute to Android. You can report bugs, write apps for Android, or contribute source code to the Android Open-Source Project.
+There are some limits on the kinds of code contributions we are willing or able to accept. For instance, someone might want to contribute an alternative application API, such as a full C++-based environment. We would decline that contribution, since Android is focused on applications that run in the Dalvik VM. Alternatively, we won’t accept contributions such as GPL or LGPL libraries that are incompatible with our licensing goals.
+We encourage those interested in contributing source code to contact us via the AOSP Community page prior to beginning any work. You can find more information on this topic at the Getting Involved page.
+
+
+How do I become an Android committer?
+The Android Open Source Project doesn’t really have a notion of a “committer”. All contributions — including those authored by Google employees — go through a web-based system known as “gerrit” that’s part of the Android engineering process. This system works in tandem with the git source code management system to cleanly manage source code contributions.
+Once submitted, changes need to be accepted by a designated Approver. Approvers are typically Google employees, but the same approvers are responsible for all submissions, regardless of origin.
+You can find more information on this topic at the Submitting Patches page.
+Compatibility
+
+
+What does “compatibility” mean?
+We define an “Android compatible” device as one that can run any application written by third-party developers using the Android SDK and NDK. We use this as a filter to separate devices that can participate in the Android app ecosystem, and those that cannot. Devices that are properly compatible can seek approval to use the Android trademark. Devices that are not compatible are merely derived from the Android source code and may not use the Android trademark.
+In other words, compatibility is a prerequisite to participate in the Android apps ecosystem. Anyone is welcome to use the Android source code, but if the device isn’t compatible, it’s not considered part of the Android ecosystem.
+
+
+What is the role of Android Market in compatibility?
+Devices that are Android compatible may seek to license the Android Market client software. This allows them to become part of the Android app ecosystem, by allowing users to download developers’ apps from a catalog shared by all compatible devices. This option isn’t available to devices that aren’t compatible.
+
+
+What kinds of devices can be Android compatible?
+The Android software can be ported to a lot of different kinds of devices, including some on which third-party apps won’t run properly. The Android Compatibility Definition Document (CDD) spells out the specific device configurations that will be considered compatible.
+For example, though the Android source code could be ported to run on a phone that doesn’t have a camera, the CDD requires that in order to be compatible, all phones must have a camera. This allows developers to rely on a consistent set of capabilities when writing their apps.
+The CDD will evolve over time to reflect market realities. For instance, the 1.6 CDD only allows cell phones, but the 2.1 CDD allows devices to omit telephony hardware, allowing for non-phone devices such as tablet-style music players to be compatible. As we make these changes, we will also augment Android Market to allow developers to retain control over where their apps are available. To continue the telephony example, an app that manages SMS text messages would not be useful on a media player, so Android Market allows the developer to restrict that app exclusively to phone devices.
+
+
+If my device is compatible, does it automatically have access to Android Market and branding?
+Android Market is a service operated by Google. Achieving compatibility is a prerequisite for obtaining access to the Android Market software and branding. Device manufacturers should contact Google to obtain access to Android Market.
+
+
+If I am not a manufacturer, how can I get Android Market?
+Android Market is only licensed to handset manufacturers shipping devices. For questions about specific cases, contact android-partnerships@google.com.
+
+
+How can I get access to the Google apps for Android, such as Maps?
+The Google apps for Android, such as YouTube, Google Maps and Navigation, Gmail, and so on are Google properties that are not part of Android, and are licensed separately. Contact android-partnerships@google.com for inquiries related to those apps.
+
+
+Is compatibility mandatory?
+No. The Android Compatibility Program is optional. Since the Android source code is open, anyone can use it to build any kind of device. However, if a manufacturer wishes to use the Android name with their product, or wants access to Android Market, they must first demonstrate that the device is compatible.
+
+
+How much does compatibility certification cost?
+There is no cost to obtain Android compatibility for a device. The Compatibility Test Suite is open-source and available to anyone to use to test a device.
+
+
+How long does compatibility take?
+The process is automated. The Compatibility Test Suite generates a report that can be provided to Google to verify compatibility. Eventually we intend to provide self-service tools to upload these reports to a public database.
+
+
+Who determines what will be part of the compatibility definition?
+Since Google is responsible for the overall direction of Android as a platform and product, Google maintains the Compatibility Definition Document for each release. We draft the CDD for a new Android version in consultation with a number of OEMs, who provide input on its contents.
+
+
+How long will each Android version be supported for new devices?
+Since Android’s code is open-source, we can’t prevent someone from using an old version to launch a device. Instead, Google chooses not to license the Android Market client software for use on versions that are considered obsolete. This allows anyone to continue to ship old versions of Android, but those devices won’t use the Android name and will exist outside the Android apps ecosystem, just as if they were non-compatible.
+
+
+Can a device have a different user interface and still be compatible?
+The Android Compatibility Program focuses on whether a device can run third-party applications. The user interface components shipped with a device (such as home screen, dialer, color scheme, and so on) does not generally have much effect on third-party apps. As such, device builders are free to customize the user interface as much as they like. The Compatibility Definition Document does restrict the degree to which OEMs may alter the system user interface for areas that do impact third-party apps.
+
+
+When are compatibility definitions released for new Android versions?
+Our goal is to release new versions of Android Compatibility Definition Documents (CDDs) once the corresponding Android platform version has converged enough to permit it. While we can’t release a final draft of a CDD for an Android software version before the first flagship device ships with that software, final CDDs will always be released after the first device. However, wherever practical we will make draft versions of CDDs available.
+
+
+How are device manufacturers’ compatibility claims validated?
+There is no validation process for Android device compatibility. However, if the device is to include Android Market, Google will typically validate the device for compatibility before agreeing to license the Market client software.
+What happens if a device that claims compatibility is later found to have compatibility problems?
+Typically, Google’s relationships with Android Market licensees allow us to ask them to release updated system images that fix the problems.
+
+Compatibility Test Suite
+
+
+What is the purpose of the CTS?
+The Compatibility Test Suite is a tool used by device manufacturers to help ensure their devices are compatible, and to report test results for validations. The CTS is intended to be run frequently by OEMs throughout the engineering process to catch compatibility issues early.
+
+
+What kinds of things does the CTS test?
+The CTS currently tests that all of the supported Android strong-typed APIs are present and behave correctly. It also tests other non-API system behaviors such as application lifecycle and performance. We plan to add support in future CTS versions to test “soft” APIs such as Intents as well.
+
+
+Will the CTS reports be made public?
+Yes. While not currently implemented, Google intends to provide web-based self-service tools for OEMs to publish CTS reports so that they can be viewed by anyone. CTS reports can be shared as widely as manufacturers prefer.
+
+
+How is the CTS licensed?
+The CTS is licensed under the same Apache Software License 2.0 that the bulk of Android uses.
+
+
+Does the CTS accept contributions?
+Yes please! The Android Open-Source Project accepts contributions to improve the CTS in the same way as for any other component. In fact, improving the coverage and quality of the CTS test cases is one of the best ways to help out Android.
+
+
+Can anyone use the CTS on existing devices?
+The Compatibility Definition Document requires that compatible devices implement the ‘adb’ debugging utility. This means that any compatible device — including ones available at retail — must be able to run the CTS tests.
+Email This

@@ -1,0 +1,71 @@
+Layout Inflater
+===============
+converting xml layout appearance description into java object.
+
+what is layout inflation?
+===========================
+converting XML appearance definition into (java)view objects in code is called inflation
+
+very time consuming
+take an XML view, create its java object,set values for all attributes, and recursively repeat for all its child nodes
+
+use the getSystemService() or getLayoutInflater() to create an object of Layoutinflater
+-only precompiled XML files by the aapt can be inflated during runtime for performance.
+
+How does it work?
+==============
+LayoutInflater I=getLayoutInflater();
+View v=I.inflate(int resource,ViewGroup parent)
+
+name of ZML 
+
+
+
+
+
+
+Fragments
+==============
+Fragment Life Cycle
+Android fragments have their own life cycle very similar to an android activity. This section briefs different stages of its life cycle.
+
+Phase I: When a fragment gets created, it goes through the following states:
+
+onAttach()
+
+onCreate()
+
+onCreateView()
+
+onActivityCreated()
+
+
+Phase II: When the fragment becomes visible, it goes through these states:
+
+onStart()
+
+onResume()
+
+Phase III: When the fragment goes into the background mode, it goes through these states:
+
+onPaused()
+
+onStop()
+
+Phase IV: When the fragment is destroyed, it goes through the following states:
+
+onPaused()
+
+onStop()
+
+onDestroyView()
+
+onDestroy()
+
+onDetach()
+
+
+
+
+
+

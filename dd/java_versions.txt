@@ -1,0 +1,22 @@
+Java SE 6 (December 11, 2006
+Java SE 7 (July 28, 2011)
+Java SE 8 (March 18, 2014)
+
+Java EE 5 (May 11, 2006
+Java EE 6 (December 10, 2009
+Java EE 7 (June 12, 2013)
+
+
+
+spring 2.5 2007
+spring 3.0 2009
+current version is Spring Framework 4.0,
+
+Hibernate 3.0 2005
+Dec 2012, Hibernate ORM 4.1.9	
+March 2013, Hibernate ORM 4.2
+Dec 2013, Hibernate ORM 4.3.0
+
+using projs spring2.5 and hibernate 3.0 and struts 1.x/2.x
+
+Struts 2.3.16.3	2 May 2014

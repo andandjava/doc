@@ -1,0 +1,17 @@
+what is serialization?
+why serialization is needed?
+---------------------------
+when conveting 
+How can we make a class as serializable?
+what are the methods needed to make serializable?
+what is serial Version UID?
+How can we generate serial Version UID?
+how many ways we can generate serial Version UID?
+can we customize the serialization process?
+advantages of serialization?
+disadvantages of serialization?
+what is deserialization?
+what is externalization?
+methods in externalization?
+difference between serialization and externalization?
+what is parceable?

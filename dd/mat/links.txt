@@ -1,0 +1,12 @@
+http://unitid.nl/androidpatterns/
+
+http://madhusudhanrc.blogspot.in/2012/08/serialization-interview-question-and.html
+
+http://www.coreservlets.com/android-tutorial/
+
+
+Questions
+=========
+https://androidquestions.quora.com/Android-interview-questions-for-2-5-yrs-experienced
+
+http://www.allinterview.com/showanswers/113364/wat-is-class-level-lock-and-object-level-lock.html

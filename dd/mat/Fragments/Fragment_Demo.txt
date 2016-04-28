@@ -1,0 +1,114 @@
+Fragments:
+=========
+->Fragment is a small chunk(piece) of UI
+->it has its own life cycle
+->it can be added or removed when activity is running
+->Reuse the same activity across several activities.
+->Fragment life cycle is closely related to the lifecycle of its host activity which means when the activity is paused, all the fragments available in the acivity will also be stopped.
+
+activity  paused: fragments paused
+activity destroyed: fragments  destroyed
+activity running:fragments can have different states.
+
+->Fragments were added to the Honeycomb version of Android API version 11
+
+We can  create fragments by extending "android.app.Fragment" class and
+ we can insert a fragment into our activity layout by declaring the fragment in the activity's layout file, as a <fragment> element. 
+
+to find a fragment FragmentManager.findFragmentById(R.id.frag);
+Fragment life cycle will be affected by Activity lifecycle.
+we write code in onCreateView() method.
+Fragment generally contributes its UI by using its own layout.But it might not have UI in some cases, as it is not mandatory.
+
+Fragment Manager
+================
+Interface for interacting with Fragment objects inside of an Activity
+FragmentManager API was introduced in HONEYCOMB or API 11
+
+he FragmentManager class is responsible to make interaction between fragment objects.
+
+Fragment Transaction
+====================
+API for performing a set of Fragment operations.
+
+
+
+
+
+
+
+
+
+why Fragments
+===============
+combile several fragments in a single activity.
+Reuse the same fragment across several activities.
+make better use of larger screen space on tablets.
+support diff layouts on potrait and lanscape modes.
+
+Uses of fragment
+--
+flexible user interface across different  screen sizes.
+fixed/scrolling/swipe tab displays.
+dialog boxes.
+action bar customisation with the list and tab modes.
+
+Fragment life-cycle 
+===================
+
+Android fragments have their own life cycle very similar to an android activity.
+
+Stage I: When a fragment gets created, it goes through the following states:
+
+   (a) onAttach() - Fragment gets attached with parent Activity
+
+   (b) onCreate() - Fragment is creating
+
+   (c) onCreateView() - The fragment instance creates its view hierarchy.
+
+   (d) onActivityCreated() - Activity and fragment instance have been created as well as their view hierarchy
+
+Stage II: When the fragment becomes visible, it goes through these states:
+
+    (a) onStart()
+
+    (b) onResume()
+
+Stage III: When the fragment goes into the background mode, it goes through these states:
+
+    (a) onPaused()
+
+    (b) onStop()
+
+
+Stage IV: When the fragment is destroyed, it goes through the following states:
+
+    (a) onPaused()
+
+    (b) onStop()
+
+    (c) onDestroyView()
+
+    (d) onDestroy()
+
+    (e) onDetach()
+
+How Fragments are created
+=========================
+done in two ways
+	statically
+	dynamically
+
+
+Advantages of Fragments
+=======================
+
+
+
+
+
+
+Types of Fragments
+==================
+Dialog Fragment
+List Fragment

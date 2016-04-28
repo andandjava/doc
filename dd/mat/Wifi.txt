@@ -1,0 +1,143 @@
+Managing WI-FI
+--------------
+
+The WifiManager represents the Android Wi-Fi Connectivity Service. 
+
+It can be used to configure Wi-Fi network connections, manage the current Wi-Fi connection, scan for access points, and monitor changes in Wi-Fi connectivity. 
+
+We can access the WifiManager using the getSystemService() method, passing in the Context.WIFI_SERVICE constant
+
+WifiManager wifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
+
+The permissions required for Wifi access in AndroidMenifest.xml file: 
+
+android.permission.ACCESS_WIFI_STATE
+android.permission.CHANGE_WIFI_STATE
+
+Methods of WifiManager
+----------------------------------
+1) boolean isWifiEnabled()
+
+2) void setWifiEnabled(boolean)
+
+3) int getWifiState()
+
+4) int addNetwork(WifiConfiguration)-Add a new network description to the set of configured networks. 
+
+5) void disconnect()
+
+6) void reconnect()
+
+7) void enableNetwork(int network ID, boolean disable others)
+
+8)  java.util.List<ScanResult>                                     getScanResults()
+
+
+if (!wifi.isWifiEnabled())
+{
+if (wifi.getWifiState() != WifiManager.WIFI_STATE_ENABLING)
+{
+wifi.setWifiEnabled(true);
+}
+}
+
+Querying the active network connection
+
+WifiInfo info = wifi.getConnectionInfo();
+if (info.getBSSID() != null) {
+int strength = WifiManager.calculateSignalLevel(info.getRssi(), 5);
+int speed = info.getLinkSpeed();
+String units = WifiInfo.LINK_SPEED_UNITS;
+String ssid = info.getSSID();
+String cSummary = String.format("Connected to %s at %s%s. Strength %s/5",
+ssid, speed, units, strength);
+}
+
+
+Scanning for Hotspots
+-------------------------------
+
+You can also use the Wi-Fi Manager to conduct access point scans using the startScan() method. An Intent with the SCAN_RESULTS_AVAILABLE_ACTION action will be broadcast to asynchronously announce that the scan is complete and results are available. Call getScanResults to get those results as a list of ScanResult objects.
+
+Each Scan Result includes the details retrieved for each access point detected, including link speed, signal strength, SSID, and the authentication techniques supported.
+
+
+1) Create a New Android Project
+
+2) In activity_main.xml - place a Button , a ScrollView and inside that a TextView
+
+3) Provide the two permissions in Androidmanifest.xml
+ACCESS_WIFI_STATE
+CHANGE_WIFI_STATE
+
+4) MainActivity.java 
+
+public class MainActivity extends Activity implements OnClickListener 
+{
+Button b;
+TextView tv;
+WifiManager wm; 
+protected void onCreate(Bundle savedInstanceState) 
+{
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+
+tv=(TextView)findViewById(R.id.textView1);
+
+b=(Button)findViewById(R.id.button1);
+b.setOnClickListener(this);
+
+wm=(WifiManager)getSystemService(Context.WIFI_SERVICE);
+
+if(wm.isWifiEnabled())
+  tv.setText("Wifi Enabled");
+else if(wm.getWifiState()==WifiManager.WIFI_STATE_ENABLING)
+ tv.setText("Wifi is Enabling");
+else
+{
+tv.setText("Wifi is not Enabled");
+wm.setWifiEnabled(true);
+}
+
+BroadcastReceiver br=new BroadcastReceiver() 
+{
+public void onReceive(Context context, Intent intent) 
+{
+List<ScanResult> l=wm.getScanResults();
+
+tv.setText("Available Hotspots = "+l.size() +"\n\n");
+
+ScanResult bestSignal=null;
+
+for(ScanResult result : l) 
+{
+tv.append(result.SSID+"\n");	
+
+if(bestSignal==null || WifiManager.compareSignalLevel(bestSignal.level,result.level)<0)
+bestSignal=result;
+}
+tv.append("Hostspot which got max signal = "+bestSignal.SSID);
+}};
+
+registerReceiver(br,new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+}
+
+public void onClick(View v) 
+{
+tv.setText("");
+wm.startScan();
+}
+}
+
+Activating a network connection
+
+// Get a list of available configurations
+List<WifiConfiguration> configurations = wifi.getConfiguredNetworks();
+// Get the network ID for the first one.
+if (configurations.size() > 0) {
+int netID = configurations.get(0).networkId;
+// Enable that network.
+boolean disableAllOthers = true;
+wifi.enableNetwork(netID, disableAllOthers);
+}
+

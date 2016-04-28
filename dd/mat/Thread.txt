@@ -1,0 +1,211 @@
+Multithreading
+==============
+a process of executing multiple threads simultaneously.
+lightweight sub-process, a smallest unit of processing. 
+
+A thread is a lightweight sub process, a smallest unit of processing executing a piece of code.
+
+threads share a common memory area. They don't allocate separate memory area so saves memory, and context-switching between the threads takes less time than process.
+
+Java Multithreading is mostly used in games, animation etc.
+
+Advantage of Java Multithreading
+--------------------------------
+
+Multitasking
+-------------
+Multitasking is a process of executing multiple tasks simultaneously. We use multitasking to utilize the CPU. Multitasking can be achieved by two ways:
+
+Process-based Multitasking(Multiprocessing)
+Thread-based Multitasking(Multithreading)
+
+1) Process-based Multitasking (Multiprocessing)
+
+Each process have its own address in memory i.e. each process allocates separate memory area.
+Process is heavyweight.
+Cost of communication between the process is high.
+Switching from one process to another require some time for saving and loading registers, memory maps, updating lists etc.
+
+2) Thread-based Multitasking (Multithreading)
+
+Threads share the same address space.
+Thread is lightweight.
+Cost of communication between the thread is low.
+
+Life cycle of a Thread
+======================
+1 New
+2 Runnable
+3 Running
+4 Non-Runnable (Blocked)
+5 Terminated
+
+The thread is in new state if you create an instance of Thread class but before the invocation of start() method.
+
+The thread is in runnable state after invocation of start() method, but the thread scheduler has not selected it to be the running thread.
+
+The thread is in running state if the thread scheduler has selected it.
+
+This is the state when the thread is still alive, but is currently not eligible to run.
+
+A thread is in terminated or dead state when its run() method exits.
+
+How to create thread
+====================
+There are two ways to create a thread:
+
+By extending Thread class
+-------------------------
+class Multi extends Thread{  
+    public void run(){  
+	System.out.println("thread is running...");  
+    }
+    public static void main(String args[]){  
+    Multi t1=new Multi();  
+    t1.start();  
+    }  
+} 
+
+By implementing Runnable interface.
+----------------------------------
+
+class Multi3 implements Runnable{  
+   public void run(){  
+	System.out.println("thread is running...");  
+   }  
+  
+   public static void main(String args[]){  
+   Multi3 m1=new Multi3();  
+   Thread t1 =new Thread(m1);  
+   t1.start();  
+   }  
+}  
+
+Thread scheduler in java is the part of the JVM that decides which thread should run.
+There is no guarantee that which runnable thread will be chosen to run by the thread scheduler.
+Only one thread at a time can run in a single process.
+The thread scheduler mainly uses preemptive or time slicing scheduling to schedule the threads.
+
+Under preemptive scheduling, the highest priority task executes until it enters the waiting or dead states or a higher priority task comes into existence. Under time slicing, a task executes for a predefined slice of time and then reenters the pool of ready tasks. The scheduler then determines which task should execute next, based on priority and other factors.
+
+Thread.sleep(500);
+Can we start a thread twice---IllegalThreadStateException 
+ if we call run() method directly instead start() method?--treated as normal object not thread object.
+
+
+The join() method waits for a thread to die. In other words, it causes the currently running threads to stop executing until the thread it joins with completes its task.
+t1.join();  
+
+public String getName(): is used to return the name of a thread.
+public void setName(String name): is used to change the name of a thread.
+public static Thread currentThread(): returns the reference of currently running thread.
+
+Priority of a Thread(1-10) 
+--------------------------
+public static int MIN_PRIORITY
+public static int NORM_PRIORITY
+public static int MAX_PRIORITY
+
+Daemon Thread in Java
+---------------------
+ is a service provider thread that provides services to the user thread
+ Its life depend on the mercy of user threads i.e. when all the user threads dies, JVM terminates this thread automatically.
+ There are many java daemon threads running automatically e.g. gc, finalizer etc.
+ You can see all the detail by typing the jconsole in the command prompt. The jconsole tool provides information about the loaded classes, memory usage, running threads etc.
+ It is a low priority thread.
+
+public void setDaemon(boolean status)	is used to mark the current thread as daemon thread or user thread.
+public boolean isDaemon()	is used to check that current is daemon.
+
+Java Thread Pool--Better performance It saves time because there is no need to create new thread.
+
+Thread Group in Java
+--------------------
+Java provides a convenient way to group multiple threads in a single object. In such way, we can suspend, resume or interrupt group of threads by a single method call.
+
+ThreadGroup tg1 = new ThreadGroup("Group A");   
+Thread t1 = new Thread(tg1,new MyRunnable(),"one");     
+Thread t2 = new Thread(tg1,new MyRunnable(),"two");     
+Thread t3 = new Thread(tg1,new MyRunnable(),"three");  
+
+Java Garbage Collection
+-----------------------
+garbage means unreferenced objects.
+
+Garbage Collection is process of reclaiming the runtime unused memory automatically. In other words, it is a way to destroy the unused objects.
+
+To do so, we were using free() function in C language and delete() in C++. But, in java it is performed automatically. So, java provides better memory management.
+
+Advantage of Garbage Collection
+------------------------------
+It makes java memory efficient because garbage collector removes the unreferenced objects from heap memory.
+It is automatically done by the garbage collector(a part of JVM) so we don't need to make extra efforts.
+
+There are many ways of object be unreferenced:
+
+1 By nulling the reference
+----
+Employee e=new Employee();  
+e=null;  
+
+2 By assigning a reference to another
+---
+Employee e1=new Employee();  
+Employee e2=new Employee();  
+e1=e2;//now the first object referred by e1 is available for garbage collection  
+
+3 By annonymous object etc.
+---
+new Employee();  
+
+The gc() method is used to invoke the garbage collector to perform cleanup processing. The gc() is found in System and Runtime classes.
+
+Synchronization
+===============
+Synchronization in java is the capability to control the access of multiple threads to any shared resource.
+
+Java Synchronization is better option where we want to allow only one thread to access the shared resource.
+
+Why use Synchronization
+-----------------------
+The synchronization is mainly used to
+
+To prevent thread interference.
+To prevent consistency problem.
+
+Types of Synchronization
+------------------------
+There are two types of synchronization
+
+Process Synchronization
+Thread Synchronization
+
+Thread Synchronization
+----------------------
+There are two types of thread synchronization mutual exclusive and inter-thread communication.
+
+Mutual Exclusive
+Synchronized method.
+Synchronized block.
+static synchronization.
+Cooperation (Inter-thread communication in java)
+
+Mutual Exclusive
+----------------
+Mutual Exclusive helps keep threads from interfering with one another while sharing data. This can be done by three ways in java:
+
+by synchronized method
+by synchronized block
+by static synchronization
+
+Concept of Lock in Java
+-----------------------
+Synchronization is built around an internal entity known as the lock or monitor. Every object has an lock associated with it. By convention, a thread that needs consistent access to an object's fields has to acquire the object's lock before accessing them, and then release the lock when it's done with them.
+
+
+
+
+
+
+
+

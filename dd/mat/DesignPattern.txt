@@ -1,0 +1,59 @@
+Design Patterns
+===============
+recurring solutions to design problems.
+
+Observer Design Pattern
+Factory Design Pattern
+Composite Design Pattern
+Facade Design Pattern
+
+
+
+Broadcast receiver uses Observer Design Pattern
+Intent uses a kind of Factory Design Pattern
+View uses Composite Design Pattern
+Media Framework uses Facade Design Pattern
+
+one of site
+-----------
+ The answer to this somewhat bizarre question can be divided into two mini answers :
+
+The platform which we are developing for is not important. In other words, the fact that we are dealing with an Android app is irrelevant. The design patterns which we want and should use are up for us to choose and implement. If we have an Instance of a connection manager, or a global parser, or even a garage which is responsible for creating new vehicles, then we should definitely use Singletons and Factory design patterns, it pretty much screams from the context of the purpose of the code. we can pretty much state that design patterns are platform-agnostic.
+The android platform itself, as you may already know is designed in somewhat MVC way. For example:
+our Controllers are the activities themselves which contain all the business logic done in the application
+Models are our entities which describe the components of our apps.
+All the Views can be done in XML layouts.
+    it’s clear that the Android SDK pretty much depends on Object oriented design because that's just the way it’s built in the core and in the way system components interact with each other. so in the next time you’re thinking about the architecture of your next app, notice the way the SDK forces you to right, and you’ll see how it’s easy to incorporate the beloved design patterns you alre	ady know.
+-------------------
+
+creational
+behavioural
+structural
+j2ee
+
+adapter
+chain of responsibility
+momento--capture and externalize the internal state of an object- keeping the encapsulation principle- and be able to restore the object state in the future.
+
+save the adnroid activity state to recover it once the phone changes the orientation to pot or land
+mvc
+===========
+creatinal patterns
+
+structural patterns:help u compose groups of objects into larger structures, such as complex user interfaces and accounting data.
+
+behavioral patterns: help you to define the comm bw objects in ur system and how the flow is controlled in a complex prg.
+
+view Holder uses Singleton dp
+Intent uses Factory dp
+adapter uses adapter dp
+broadcast receiver uses observer dp
+view uses composite dp
+media framework uses Facade dp
+
+
+
+
+
+
+

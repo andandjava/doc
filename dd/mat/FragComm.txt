@@ -1,0 +1,79 @@
+Fragment Communication
+======================
+
+Sending data from Activity to Fragment
+======================================
+	1. using intents
+	2. using a public method in MainActivity
+	3. using a separate class implements serializable
+
+Intents
+-------
+
+In MainAcitivity:
+
+Bundle bundle = new Bundle();
+bundle.putString("Key", "StringValue");
+FragmentOne frag = new FragmentOne();
+frag.setArguments(bundle);
+
+In Fragment:
+
+String strtext = getArguments().getString("Key");
+
+public method
+-------------
+
+In MainActivity:
+
+
+public String getData()
+	{
+		return "got data";
+	}
+
+In Fragment:
+
+MainActivity act=(MainActivity) getActivity();
+		String strtext=act.getData();
+
+
+Sending data from Fragment to Activity
+=======================================
+
+In Fragment:
+
+//written in button click event 
+//logic should be written in start method
+Intent i=new Intent(getActivity(),MainActivity.class);
+i.putExtra("dd","dkfs");
+startActivity(i);
+
+@Override
+public void onStart() {
+super.onStart();
+Button b1 = (Button) getActivity().findViewById(R.id.btn1);
+b1.setOnClickListener(new OnClickListener() {
+			
+	@Override
+	public void onClick(View v) {
+		Intent i=new Intent(getActivity(),MainActivity.class);
+		i.putExtra("dd","dkfs");
+		startActivity(i);
+		}
+	});
+}
+
+In Activity:
+//logic should be written in start method
+
+protected void onStart() {
+super.onStart();
+String name=getIntent().getStringExtra("dd");
+Toast.makeText(this, "clicked button in Fragment 2"+name, Toast.LENGTH_SHORT).show();
+}
+
+Sending data from Fragment1 to Fragment2
+========================================
+
+

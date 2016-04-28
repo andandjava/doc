@@ -1,0 +1,3 @@
+8-bit Processor - 8085 / Z80 / 6800; 
+16-bit Processor - 8086 / 68000 / Z8000; 
+32-bit Processor - 80386 / 80486.

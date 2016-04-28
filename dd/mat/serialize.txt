@@ -1,0 +1,154 @@
+def:Serialization is the process of storing an object, including all of its members, to a persistent or a non-persistent storage media by converting the object into a linear stream of data. 
+
+The advantage of serialization is to save the state of an object in order to have the ability to recreate the same object at a later point of time if and when it is required. 
+
+ The static variables belong to the class are not the part of the state of the object so they are not saved as the part of serialized object.
+
+ Implementing this interface will allow the object converted into bytestream and transfer over a network.
+
+The purpose of serialization is to store the state of objects in a self contained way that doesn't require raw memory references, run time state etc. In other words, objects can be represented as a string of bits that can be stored on disk, sent over a network etc
+
+transient variable
+-------------------
+ These variables are not included in the process of serialization and are not the part of the object’s serialized state.
+
+Q10) What will be the value of transient variable after de-serialization?
+
+Ans) It’s default value.
+e.g. if the transient variable in question is an int, it’s value after deserialization will be zero.
+
+serialVersionUID
+================
+Everytime an object is serialized the java serialization mechanism automatically computes a hash value.That hash value is called Serial Version UID.
+
+when we deserialize we get a new serial Version UID. The new serial Version UID and old serial Version UID are equal then the deserialize process will complete otherwise it throws an exception.
+
+when we make any changes to the given object(i.e. properties in a class),
+If these changes are compatible--new serial Version UID and old serial Version UID are equal.
+If these changes are incompatible--new serial Version UID and old serial Version UID are not equal.
+
+Changes to a serializable class can be compatible or incompatible. Following is the list of changes which are compatible:
+----------------------------
+Add fields
+Change a field from static to non-static
+Change a field from transient to non-transient
+Add classes to the object tree
+
+
+List of incompatible changes:
+-------------------------------
+Delete fields
+Change class hierarchy(change the order of properties top to bottom or viceversa)
+Change non-static to static
+Change non-transient to transient
+Change type of a primitive field
+
+If the new serial Version UID and old serial Version UID are equal then deserialize concept will complete and finally get the object.
+
+Ex
+compatable changes:
+class Person
+{
+	int eno;
+	static float sal;
+	transiant String address;
+	int phnum;
+	String email;
+	
+}
+
+class Person
+{
+	int eno;
+	float sal;
+	String address;
+	int phnum;
+	String email;
+}
+Incompatible changes:
+
+class Person
+{
+	int eno;
+	static float sal;
+	transiant String address;
+	static int phnum;-----------1
+	transiant String email;-----1
+	
+}
+Advantages
+-----------
+
+---
+It is easy to use and can be customized.
+
+The serialized stream can be encrypted, authenticated and compressed, supporting the needs of secure Java computing.
+
+Serialized classes can support coherent versioning and are flexible enough to allow gradual evolution of your application's object schema.
+
+Serialization can also be used as a mechanism for exchanging objects between Java and C++ libraries, using third party vendor libraries (like RogueWave's Tools.h++ ) within C++.
+
+There are simply too many critical technologies that rely upon serialization, including RMI, JavaBeans and EJB.
+
+Disadvantages
+-------------
+if old and new serial Version UID not matches it throws Exception(we cant deserialize i.e. cant get/construct object).We need to handle these with care.
+
+Serialization makes sense for short-term persistence, like for RMI or cloning but don't try using it for long-term persistence and complains that it "breaks" when your class definition changes. It simply is not designed for that. 
+
+quite slow
+
+Moreover, XML serialization is insecure, consumes a lot of space on the disk 
+
+it works on public members and public classes and not on the private or internal classes.
+
+ create a lot of temporary objects and cause quite a bit of garbage collection.
+
+-------------
+It should ideally not be used with large-sized objects, as it offers significant overhead. Large objects also significantly increase the memory requirements of your application since the object input/output streams cache live references to all objects written to or read from the stream until the stream is closed or reset. Consequently, the garbage collection of these objects can be inordinately delayed
+
+he Serializable interface does not offer fine-grained control over object access - although you can somewhat circumvent this issue by implementing the complex Externalizable interface, instead.
+
+Since serialization does not offer any transaction control mechanisms per se, it is not suitable for use within applications needing concurrent access without making use of additional APIs.
+
+
+Exceptions
+----------
+NotSerializableException for a POJO
+
+if pojo class using ref of non serializable class it throws NotSerializableException.
+
+What are rules of serialization in Java?
+----------------------------------------
+Here is a summary of some rules of Java serialization:
+
+An object is serializable only if its class or its superclass implements the Serializable (or  Externalizable) interface.
+An object is serializable (itself implements the Serializable interface) even if its superclass is not. However, the first superclass in the hierarchy of the serializable class, that does not implements Serializable interface, MUST have a no-arg constructor. If this is violated, readObject() will produce a java.io.InvalidClassException in runtime.
+The no-arg contructor of every non-serializable superclass will run when an object is deserialized. However, the deserialized objects? constructor does not run when it is deserialized.
+The class must be visible at the point of serialization.
+All primitive types are serializable.
+Transient fields (with transient modifier) are NOT serialized, (i.e., not saved or restored). A class that implements Serializable must mark transient fields of classes that do not support serialization (e.g., a file stream).
+Static fields (with static modifier) are Not serialized.
+If member vairiables of a serializable object reference to a non-serializable object, the code will compile but a RumtimeException will be thrown.
+NOte:
+----
+transient and static variable not serialized static var is not related to object,its a class varaible.
+
+Differences between Serialization and Parceable
+================================================
+default(by implementing interface)      customised(overiding methods)
+much time				less time--more fast,much performance
+create a lot of temperary objs
+more garbage collection
+					read & write the methods in the same order.
+disadv
+-----------
+					more boilerplate code.
+
+public final static Parcelable.Creator CREATOR
+writeToParcel() 
+createFromParcel()
+
+
+
+Static block is executed even if only a static field is accessed without instantiating an object. 

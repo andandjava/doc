@@ -1,0 +1,224 @@
+Fragments in Android
+==================
+A Fragment is a piece of an application's user interface that can be placed in an Activity which enable more modular activity design. A fragment is a kind of sub-acitivity. 
+
+(1) A fragment has its own layout and its own functionality with its own lifecycle methods.
+
+(2) We can add or remove fragments in an activity while the activity is running.
+
+(3) We can combine multiple fragments in a single activity to build a multi-pane UI.
+
+(4) The same  fragment can be used in multiple activities.
+
+(5) Fragment life cycle is closely related to the lifecycle of its host activity which means when the activity is paused, all the fragments available in the acivity will also be stopped.
+
+(6) Fragments were added to the Honeycomb version of Android API version 11
+
+
+We can  create fragments by extending "android.app.Fragment" class and we can insert a fragment into our activity layout by declaring the fragment in the activity's layout file, as a <fragment> element. 
+
+
+Fragment life-cycle 
+---------------------------
+
+Android fragments have their own life cycle very similar to an android activity.
+
+Stage I: When a fragment gets created, it goes through the following states:
+
+   (a) onAttach() - Fragment gets attached with parent Activity
+
+   (b) onCreate() - Fragment is creating
+
+   (c) onCreateView() - The fragment instance creates its view hierarchy.
+
+   (d) onActivityCreated() - Activity and fragment instance have been created as well as their view hierarchy
+
+Stage II: When the fragment becomes visible, it goes through these states:
+
+    (a) onStart()
+
+    (b) onResume()
+
+Stage III: When the fragment goes into the background mode, it goes through these states:
+
+    (a) onPaused()
+
+    (b) onStop()
+
+
+Stage IV: When the fragment is destroyed, it goes through the following states:
+
+    (a) onPaused()
+
+    (b) onStop()
+
+    (c) onDestroyView()
+
+    (d) onDestroy()
+
+    (e) onDetach()
+
+
+How to work with Fragments?
+------------------------------------------
+1)  Decide the number of Fragments required in the Activity
+
+2) Define Fragment classes which extends android.app.Fragment
+
+3) Create the corresponding layout files (xml files) for each Fragment class
+
+4) Make necessary logic in the activity class
+
+
+(1) onCreate() The system calls this when creating the fragment. You should initialize essential components of the fragment that you want to retain when the fragment is paused or stopped, then resumed.
+
+(2) onCreateView() The system calls this callback when it's time for the fragment to draw its user interface for the first time. To draw a UI for your fragment, you must return a View component from this method that is the root of your fragment's layout. You can return null if the fragment does not provide a UI.
+
+(3) onPause() The system calls this method as the first indication that the user is leaving the fragment. This is usually where you should commit any changes that should be persisted beyond the current user session.
+
+
+
+Example :
+--------
+
+1) Create a New Android Application Project
+
+Minimum Required SDK : API 11 Android 3.0 (Honeycomb)
+
+
+2) In activity_main.xml - place two buttons and one Fragment
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical" >
+
+<Button android:id="@+id/button1"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Fragment No.1" />
+
+<Button
+android:id="@+id/button2"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Fragment No.2" /> 
+
+<fragment
+android:name="com.peers.fragmenttest.FragmentOne"
+android:id="@+id/fragment_place"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+/>
+</LinearLayout>
+
+
+When we add a <fragment> element in a layout, we have to define the "android:name" and "android:id" properties of <fragment> element
+
+The android:name defines an object of a android.app.Fragment Class, that we want to be instantiated and the android:id specifies the unique id of that fragment.
+
+3) Create the Fragment classes
+
+Right click on com.peers.fragmenttest package > New > Class.
+
+Class Name : FragmentOne 
+Super class : android.app.Fragment
+> Finish
+
+FragmentOne.java
+---------------------------
+public class FragmentOne extends Fragment 
+{
+public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) 
+{
+View v=inflater.inflate(R.layout.fragment_one, container, false);
+//false - attach to Root
+return v;
+}
+}
+
+Create one more Fragment class
+Class Name : FragmentTwo
+(follow the previous step - only layout name will be different - R.layout.fragment_two)
+
+FragmentTwo.java
+--------------------------
+public class FragmentTwo extends Fragment 
+{
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
+{
+return inflater.inflate(R.layout.fragment_two, container, false);
+}
+}
+
+
+4) Create the layouts for the Fragments
+
+For FragmentOne  create the fragment_one.xml layout and for FragmentTwo - fragment_two.xml 
+
+Right click on Project Node > New > Other > Android > Android XML File > Next
+Resource Type : layout
+File 	          : fragment_one
+Root Element    : Relative Layout
+> Next
+Folder : res/layout 
+> Finish  
+
+make the required design in fragment_one.xml
+
+Same way create fragment_two.xml layout resource for FragmentTwo
+
+5) MainActivity.java
+
+package com.peers.fragmenttest;
+
+import android.os.Bundle;
+import android.view.View;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+
+
+public class MainActivity extends Activity implements OnClickListener 
+{
+Button b1,b2;
+Fragment f;
+
+protected void onCreate(Bundle savedInstanceState) 
+{
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+
+b1=(Button)findViewById(R.id.button1);
+b2=(Button)findViewById(R.id.button2);
+
+b1.setOnClickListener(this);
+b2.setOnClickListener(this);
+}
+public void onClick(View v) 
+{
+if(v==b1)
+{
+f=new FragmentOne();	
+}
+else
+{
+f=new FragmentTwo();	
+}
+
+FragmentManager fm=                     getFragmentManager();
+
+FragmentTransaction ft=                                        fm.beginTransaction();
+
+ft.replace(R.id.fragment_place,f);
+/*
+R.id.frag is the ID reference of <fragment> in activity_main.xml layout
+*/
+ft.commit();
+}
+}
+
+6) Run the Application
+

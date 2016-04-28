@@ -1,0 +1,23 @@
+Loction Providers
+=================
+knowing the current location in an android mobile
+
+There are two types of location providers,
+1.GPS Location Provider
+2.Network Location Provider
+
+Any one of the above providers is enough to get current location of the user or user’s device. But, it is recommended to use both providers as they both have different advantages. Because,
+-- GPS provider will take time to get location at indoor area. 
+-- And, the Network Location Provider will not get location when the network connectivity is poor.
+--Network Location provider is comparatively faster than the GPS provider in providing the location co-ordinates.
+--GPS provider may be very very slow in in-door locations and will drain the mobile battery.
+--Network location provider depends on the cell tower and will return our nearest tower location.
+--GPS location provider, will give our location accurately.
+
+Steps to get location in Android
+--------------------------------
+Provide permissions in manifest file for receiving location update
+Create LocationManager instance as reference to the location service
+Request location from LocationManager
+Receive location update from LocationListener on change of location
+
